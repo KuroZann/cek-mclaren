@@ -1,21 +1,21 @@
-document.getElementById('khodamForm').addEventListener('submit', function(event) {
+document.getElementById('colorForm').addEventListener('submit', function(event) {
     event.preventDefault();
     let name = document.getElementById('nameInput').value;
     if (name.trim() !== "") {
-        addKhodamToTable(name);
+        addColorToTable(name);
         document.getElementById('nameInput').value = '';
     }
 });
 
-const khodams = [
-    {name: 'Khodam Jin', image: 'assets/jin.jpeg'},
-    {name: 'Khodam Malaikat', image: 'assets/malaikat.jpeg'},
-    {name: 'Khodam Raja Macan', image: 'assets/macan.jpeg'},
-    {name: 'Khodam Harimau Putih', image: 'assets/harimauputih.jpeg'},
-    {name: 'Khodam Buaya Putih', image: 'assets/buaya.jpeg'},
-    {name: 'Khodam Ular Naga', image: 'assets/ularnaga.jpg'},
-    {name: 'Khodam Nyi Roro Kidul', image: 'assets/roro.jpeg'},
-    {name: 'Khodam Dewa Zeus', image: 'assets/zeus.jpeg'}
+const colors = [
+    {name: 'warna ungu', image: 'assets/IMG-001.jpg'},
+    {name: 'warna kuning', image: 'assets/IMG-002.jpg'},
+    {name: 'warna biru', image: 'assets/IMG-003.jpg'},
+    {name: 'warna merah', image: 'assets/IMG-004.jpg'},
+    {name: 'warna putih', image: 'assets/IMG-005.jpg'},
+    {name: 'warna hijau', image: 'assets/IMG-006.jpg'},
+    {name: 'warna hitam', image: 'assets/IMG-007.jpg'},
+    {name: 'warna orange', image: 'assets/IMG-008.jpg'}
 ];
 
 // Function to hash the name and map it to an index
@@ -24,37 +24,37 @@ function hashCode(str) {
     for (let i = 0; i < str.length; i++) {
         let char = str.charCodeAt(i);
         hash = (hash << 5) - hash + char;
-        hash = hash & hash; // Convert to 32bit integer
+        hash = hash & hash;
     }
     return hash;
 }
 
-function getKhodamByName(name) {
-    const index = Math.abs(hashCode(name)) % khodams.length;
-    return khodams[index];
+function getColorByName(name) {
+    const index = Math.abs(hashCode(name)) % colors.length;
+    return colors[index];
 }
 
-function addKhodamToTable(name) {
+function addColorToTable(name) {
     const tableBody = document.getElementById('tableBody');
     const row = document.createElement('tr');
-
+    
     const nameCell = document.createElement('td');
     nameCell.textContent = name;
-
-    const khodam = getKhodamByName(name);
+    
+    const color = getColorByName(name);
     const imageCell = document.createElement('td');
     const image = document.createElement('img');
-    image.src = khodam.image;
-    image.alt = khodam.name;
-    image.style.width = '200px'; // Atur ukuran gambar sesuai kebutuhan
+    image.src = color.image;
+    image.alt = color.name;
+    image.style.width = '200px';
     imageCell.appendChild(image);
 
-    const khodamNameCell = document.createElement('td');
-    khodamNameCell.textContent = khodam.name;
+    const colorNameCell = document.createElement('td');
+    colorNameCell.textContent = color.name;
 
     row.appendChild(nameCell);
     row.appendChild(imageCell);
-    row.appendChild(khodamNameCell);
+    row.appendChild(colorNameCell);
 
     // Add new row to the top of the table body
     tableBody.insertBefore(row, tableBody.firstChild);
