@@ -13,8 +13,8 @@ const colors = [
     {name: 'warna biru', image: 'assets/IMG-003.jpg'},
     {name: 'warna merah', image: 'assets/IMG-004.jpg'},
     {name: 'warna putih', image: 'assets/IMG-005.jpg'},
-    {name: 'warna hijau', image: 'assets/IMG-006.jpg'},
-    {name: 'warna hitam', image: 'assets/IMG-007.jpg'},
+    {name: 'warna hitam', image: 'assets/IMG-006.jpg'},
+    {name: 'warna hijau', image: 'assets/IMG-007.jpg'},
     {name: 'warna orange', image: 'assets/IMG-008.jpg'}
 ];
 
